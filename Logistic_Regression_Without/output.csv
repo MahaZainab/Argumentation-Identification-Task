@@ -1,0 +1,184 @@
+Text,Label
+"complicated 3D character models are widely used in fields of entertainment, virtual reality, medicine etc",background_claim
+The range of breathtaking realistic 3D models is only limited by the creativity of artists and resolution of devices,background_claim
+a production cannot afford major revisions,background_claim
+providing a flexible and efficient solution to animation remains an open problem,own_claim
+Skeleton Subspace Deformation (SSD) is the predominant approach to character skinning at present,background_claim
+Driving 3D models in a natural and believable manner is not trivial,background_claim
+its ease of implementation,data
+low cost of computing,data
+"SSD is widely used in games, virtual reality and other realtime applications",background_claim
+artists will edit the geometry of characters in the rest pose to fine-tune animations,background_claim
+This approach is not commonly applied,background_claim
+editing in the rest pose will influence most other poses,background_claim
+SSD is also notorious for artifacts at rotating elbows and extreme poses,background_claim
+Example based skinning methods such as Pose Space Deformation (PSD) are candidates for correcting SSD limitations,background_claim
+PSD may be used as a compensation to the underlying SSD,background_claim
+the animator specifies the PSD examples after the SSD has been performed,background_claim
+"the examples are best interpolated in the rest pose, before the SSD has been applied",background_claim
+the action of the SSD and any other deformations must be “inverted” in order to push the example compensation before these operations,background_claim
+SSD is the most representative in the family of basic skinning,background_claim
+this inverse strategy has a better performance than the same framework without it,own_claim
+this approach will improve the quality of deformation,own_claim
+they are seldom applied to interactive applications,background_claim
+the high cost of computing,data
+complicated algorithms,data
+this category can generate more believable animation effects compared to its geometric counterpart,background_claim
+Pose Space Deformation,background_claim
+combines shape blending and Skeleton Subspace Deformation by formulating a scattered data interpolation problem over sculpted (or otherwise obtained) example poses,background_claim
+[ 1 ],data
+Related research efforts have improved the speed and power of example-based skinning,background_claim
+incorporate linear elements into RBF to produce constant changes between examples,background_claim
+[ 2 ],data
+precompute principal components of the deformation influences for individual kinematic joints instead of storing displacements for key poses,background_claim
+enabling realtime rendering large nonlinear finite element models of human hands,background_claim
+[ 3 ],data
+introduce weighted pose space deformation for deforming realistic models of human hand,background_claim
+[ 4 ],data
+these example-based approaches can be considered as non-parametric skin deformation methods,background_claim
+identifies statistically relevant bones and approximates bone transforms from example mesh animations,background_claim
+[ 5 ],data
+these have also seen some development in recent years,background_claim
+[ 6 ],data
+[ 7 ],data
+are also common practices in the entertainment production,background_claim
+Skinning using free form lattices,background_claim
+NURBS curves,background_claim
+[ 10 ],data
+[ 8 ],data
+[ 9 ],data
+the inverse operation can improve the results,own_claim
+inverse operation is required,own_claim
+SSD is widely applied to interactive applications such as games and virtual reality,background_claim
+it is implemented in most commercial animation packages,background_claim
+its simplicity,data
+efficiency,data
+SSD is very popular in circumstances that require animating a number of characters in real time,background_claim
+vertex transformations can be easily implemented in the graphic card,data
+the domain of adjusting one vertex in this way is strictly limited to the linear subspace formed by the vertex as transformed by joints influencing this vertex,background_claim
+"When a character goes wrong in some pose, animators can adjust joint influence weights",background_claim
+SSD cannot synthesize many parts of a character skin involving complicated joint structures,background_claim
+deforming is limited to a linear subspace,background_claim
+[ 1 ],data
+a combination of SSD and shape blending providing nice solution to above mentioned problems,background_claim
+[ 1 ],data
+PSD and improved example-based schemes have been discussed in many publications,background_claim
+[ 2 ],data
+[ 3 ],data
+[ 4 ],data
+the reason why the inverse should be performed is still ambiguous,own_claim
+inverting the SSD (and other deformations) in order to interpolate the examples in the rest pose is a the right choice,own_claim
+it is an improvement,own_claim
+the superiority of the inverse method,own_claim
+SSD −1 simply is the inverse transformation matrix generated by SSD,own_claim
+SSD is a 3D transformation,data
+the inverse method is superior,own_claim
+Taking the model in rest pose as an example is a common practice when applying shape interpolation,background_claim
+interpolating effects from other examples should not change the original model in rest pose,background_claim
+"we have: ω 1x = φ 11 −1 d 1x + φ 12 −1 d 2x = φ 12 −1 d 2x ω 2x = φ 21 −1 d 1x + φ 22 −1 d 2x = φ 22 −1 d 2x = d 2x ω 1y = φ 11 −1 d 1y + φ 12 −1 d 2y = φ 12 −1 d 2y ω 2y = φ 21 −1 d 1y + φ 22 −1 d 2y = φ 22 −1 d 2y = d 2y where φ i −1 j is the (i, j)th element of Φ −1",own_claim
+we simplify SSD as a rotation transformation ignoring other issues such as accumulating effects from the first joint,own_claim
+only the second joint is rotating,own_claim
+"in forward case, the direction of deformed vertex always keeps the same with the example cylinder",own_claim
+( figure 4 ),data
+"For inverse PSD however, that direction is changed along with the rotation of the joint",own_claim
+PSD is supposed to be a method as “local” correction,own_claim
+pose space should not be extended to a whole space that has to incorporate all influenced objects,own_claim
+a matter of experience,data
+large amount of unnecessary works of building examples will be required,own_claim
+the distance between different poses is also meaningless,own_claim
+most of which have been implemented in most animation packages,background_claim
+"in many circumstances, other deformation schemes will be adopted",background_claim
+[ 10 ],data
+[ 9 ],data
+we can deform the original character model from rest pose to another specific pose,own_claim
+One advantage of Powell’s classic method is that it does not need explicit computation of the function’s gradient,background_claim
+[ 12 ],data
+Powell’s method is suitable,own_claim
+"we are treating the skinning operations as a “black box”, their gradient is not available",data
+"after repeated cycles of M line minimizations on conjugate directions, the optimization will in due course converge to the minimum",background_claim
+[ 12 ],data
+"If the SSD transformation in equation 1 is singular, some types of inverse PSD deformation will not be possible",own_claim
+any component of the desired deformation that lies in the null space of the SSD matrix will be ignored,data
+singular cases are rare,own_claim
+it is possible to handle these cases with a small rearrangement of the inverse PSD approach,own_claim
+"one example is a joint with 180 o rotation and equal 2 1 , 2 1 weights on the two joint frames, which is an unrealistic case of selfintersection",data
+it will be generally be zero,own_claim
+w i is being minimized,data
+will be non-zero only if it is not possible to obtain the desired deformation v i using SKINNING i (v r + d i ),own_claim
+Inverse skinning integrates SSD and shape interpolation more firmly than its forward rival.,own_claim
+the inverse approach presents better performance and more consistent interpolation,own_claim
+Figure 7 to Figure 10,data
+"the direction of deformed vertex in inverse skinning is linearly proportional to joint rotations in a simplified example, while the forward PSD does not incorporate the direction information",own_claim
+the minimizing process will introduce more cost,own_claim
+The cost of the inverse operation is not critical,own_claim
+it is a one time “setup” cost,own_claim
+the compute time is insignificant compared to the human time required to sculpt the desired deformations,own_claim
+a frame goes wrong,data
+physical principles,data
+the model is very detailed,data
+playback of animation becomes quite heavy and time consuming,data
+For those applications that require visual fidelity,background_claim
+SSD serves only as a basic framework,background_claim
+PSD smoothly interpolates these meshes in pose space and produces visually attractive animations,background_claim
+"Besides SSD, other skinning approaches",background_claim
+can also be applied,background_claim
+rigid skinning,data
+Free Form Deformation,data
+physical modelling and animation is another field providing realistic character simulations,background_claim
+Simpler parametric skinning approaches (of which SSD is the prototype) have a fixed number of parameters,background_claim
+the direction of deformed vertices from inverse skinning is a linear function of joint rotation,own_claim
+"in the forward approach, that direction is kept as a constant",own_claim
+propose a unified framework which can be implemented on high-end commercial packages while allowing any proprietary skinning operators to be incorporated,own_claim
+Skeleton Subspace Deformation (SSD) is a basic algorithm that is used to define how the character surface deforms following movements of its underlying skeletons,background_claim
+[ 11 ],data
+SSD is adopted to define this relation,data
+"each vertex or control point of the character surface is provided with a list of joints, that will influence it, along with the weight indicating the amount of influence",background_claim
+the position of a vertex in the animated pose is the result of weighted linear blending of its transformation by each associated joint,background_claim
+the character is animated,data
+The famous SSD problem of “collapsed elbow”,background_claim
+sculpted in N example poses,data
+a vertex v,data
+"there are N delta d i , i = 0, . . . , N − 1 corresponding to each pose x i , i = 0, . . . , N − 1",own_claim
+SSD as the underlying skinning,own_claim
+an explicit form of basic skinning can help to simplify our task of explanation,own_claim
+"in the rest pose, we didn’t generate any movement for v",data
+"d 1 = [d 1x , d 1y ] = [0, 0]",own_claim
+by solving above equation,data
+i = j,data
+φ i −1 j = 1,own_claim
+"this angle α p is a constant and depends only on the value of delta in the second pose d 2 = [d 2x , d 2y ]",own_claim
+tan α p = d d x y = ω ω 1x 1y φ φ (x (x − − x x 1 1 ) ) + + ω ω 2y 2x φ φ (x (x − − x x 2 2 ) ) = φ φ 12 12 −1 −1 d d 2x 2y φ φ (x (x − − x x 1 1 ) ) + + d d 2x 2y φ φ (x (x − − x x 2 2 ) ) = d 2y d 2x,own_claim
+tan α p = d d x y,own_claim
+The case described above is quite common in practice,own_claim
+"animating shoulder, elbow, knee, hip-bone, neck",data
+All these parts would rotate from the rest pose with some angle to other poses,own_claim
+a unified framework in which no explicit inverse operation is necessitated,own_claim
+a basic skinning method supported by animation packages,data
+v i t = v i + d i = SKINNING i (v r ) + d i,own_claim
+we need to replace SSD with SKINNING in the inverse skinning algorithm as such for equation 4,own_claim
+the more general case,data
+To find delta d i in the rest pose: v i = SKINNING i (v r ) + d i = SKINNING i (v r + d i ) we can setup a minimization problem to minimize the function,own_claim
+This function can be given to Powell’s method to find d i at the minimum of f (d ),own_claim
+"For each example pose P i , we have a d i",data
+we can apply radial basis function to d i (i = 0 . . . n − 1) in pose space to obtain ω i (i = 0 . . . n − 1),own_claim
+Minimizing the function f (d ) in a particular direction is actually minimization problem of one variable,own_claim
+Powell’s idea is trying to find each minimum of function f (d ) in different direction until f (d ) stops decreasing,background_claim
+How to choose the next direction is the main concern of Powell’s method,background_claim
+"In Maya, “tweaking” is a procedure adding delta values to original surface vertices before any deformations",background_claim
+It is actu- ally Maya’s form of rest-pose editing for their built-in deformation operators,background_claim
+the whole system is divided into two phases,own_claim
+Figure 6,data
+The first phase is to find each delta in the rest pose corresponding to each example pose,own_claim
+the second phase that is a linear system performing RBF interpolation to obtain the PSD weights,own_claim
+only minimal code changed are required,own_claim
+The final synthesis is then v x = SKINNING(v r + d x ) + w x where w x is interpolated after SKINNING by applying the same RBF scheme as used for d x,own_claim
+the SSD transform is nearsingular,data
+"the solved d i can be much large than other d k , which can result in poorly posed interpolation",own_claim
+the synthesis is potentially realtime,own_claim
+no extra computing is involved in this process,own_claim
+the linear system is solved,data
+only one joint rotation and two example poses are considered,data
+A nice review of SSD is given,background_claim
+1,data
+resculpting models,data
+re-rigging skeletons,data
