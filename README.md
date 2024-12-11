@@ -33,10 +33,6 @@ Reproduce the feature sets described in Section 4.1 of the project specification
 4. **Modal Verbs:**
    - Extract modal verbs using Python's `spacy` library.
 
-5. **Textual Entailment:**
-   - Frame this feature to suit scientific articles, considering hypotheses and experiments.
-   - Explore literature on textual entailment in scientific articles for implementation strategies.
-
 6. **Negation:**
    - Detect negation using Python libraries like `spacy` or custom logic.
 
